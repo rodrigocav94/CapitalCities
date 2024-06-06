@@ -12,8 +12,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "CapitalCities"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        setupNavBar()
         
         let rioDeJaneiro = Capital(title: "Rio de Janeiro", coordinate: CLLocationCoordinate2D(latitude: -22.9068, longitude: -43.1729), info: "Famous for its Carnival festival.", region: .southeast)
         let saoPaulo = Capital(title: "São Paulo", coordinate: CLLocationCoordinate2D(latitude: -23.5505, longitude: -46.6333), info: "Largest city in Brazil.", region: .southeast)
@@ -87,6 +86,38 @@ class ViewController: UIViewController, MKMapViewDelegate {
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
-
+    
+    func setupNavBar() {
+        title = "CapitalCities"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let mapSettingsButton = UIBarButtonItem(
+            image: UIImage(systemName: "map"),
+            style: .plain,
+            target: self,
+            action: #selector(onSettingsTapped)
+        )
+        
+        navigationItem.rightBarButtonItem = mapSettingsButton
+    }
+    
+    @objc func onSettingsTapped() {
+        let ac = UIAlertController(title: "Select terrain type", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Satelite", style: .default) { _ in
+            self.mapView.preferredConfiguration = MKImageryMapConfiguration(elevationStyle: .realistic)
+        })
+        
+        ac.addAction(UIAlertAction(title: "Hybrid", style: .default) { _ in
+            self.mapView.preferredConfiguration = MKHybridMapConfiguration(elevationStyle: .realistic)
+        })
+        
+        ac.addAction(UIAlertAction(title: "Standard", style: .default) { _ in
+            self.mapView.preferredConfiguration = MKStandardMapConfiguration(elevationStyle: .realistic)
+        })
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(ac, animated: true)
+    }
 }
 
