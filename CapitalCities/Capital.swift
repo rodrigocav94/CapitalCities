@@ -13,12 +13,14 @@ class Capital: NSObject, MKAnnotation, Codable {
     var coordinate: CLLocationCoordinate2D
     var info: String
     var region: Region
+    var suffix: String
     
-    init(title: String? = nil, coordinate: CLLocationCoordinate2D, info: String, region: Region) {
+    init(title: String? = nil, coordinate: CLLocationCoordinate2D, info: String, region: Region, suffix: String) {
         self.title = title
         self.coordinate = coordinate
         self.info = info
         self.region = region
+        self.suffix = suffix
     }
     
     // MARK: - Codable Conformity
@@ -28,6 +30,7 @@ class Capital: NSObject, MKAnnotation, Codable {
         case longitude
         case info
         case region
+        case suffix
     }
     
     required init(from decoder: Decoder) throws {
@@ -38,6 +41,7 @@ class Capital: NSObject, MKAnnotation, Codable {
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         self.info = try container.decode(String.self, forKey: .info)
         self.region = try container.decode(Region.self, forKey: .region)
+        self.suffix = try container.decode(String.self, forKey: .suffix)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -47,6 +51,7 @@ class Capital: NSObject, MKAnnotation, Codable {
         try container.encode(coordinate.longitude, forKey: .longitude)
         try container.encode(info, forKey: .info)
         try container.encode(region, forKey: .region)
+        try container.encode(suffix, forKey: .suffix)
     }
 }
 
