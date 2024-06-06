@@ -15,6 +15,8 @@
 		9F41AFAC2C10FC910015C894 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9F41AFAB2C10FC910015C894 /* Base */; };
 		9F41AFB42C110CF30015C894 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F41AFB32C110CF30015C894 /* Capital.swift */; };
 		9FCA3FAA2C12137E009CD9A7 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA3FA92C12137E009CD9A7 /* Region.swift */; };
+		9FCA3FAC2C122FD9009CD9A7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA3FAB2C122FD9009CD9A7 /* DetailViewController.swift */; };
+		9FCA3FAE2C12321A009CD9A7 /* CapitalCities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FCA3FAD2C12321A009CD9A7 /* CapitalCities.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		9F41AFAD2C10FC910015C894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F41AFB32C110CF30015C894 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 		9FCA3FA92C12137E009CD9A7 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		9FCA3FAB2C122FD9009CD9A7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9FCA3FAD2C12321A009CD9A7 /* CapitalCities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CapitalCities.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			children = (
 				9F41AF9F2C10FC900015C894 /* AppDelegate.swift */,
 				9F41AFA12C10FC900015C894 /* SceneDelegate.swift */,
+				9FCA3FAB2C122FD9009CD9A7 /* DetailViewController.swift */,
 				9F41AFA32C10FC900015C894 /* ViewController.swift */,
 				9F41AFA52C10FC900015C894 /* Main.storyboard */,
 				9F41AFA82C10FC910015C894 /* Assets.xcassets */,
@@ -69,6 +74,7 @@
 				9F41AFAD2C10FC910015C894 /* Info.plist */,
 				9F41AFB32C110CF30015C894 /* Capital.swift */,
 				9FCA3FA92C12137E009CD9A7 /* Region.swift */,
+				9FCA3FAD2C12321A009CD9A7 /* CapitalCities.json */,
 			);
 			path = CapitalCities;
 			sourceTree = "<group>";
@@ -132,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F41AFA92C10FC910015C894 /* Assets.xcassets in Resources */,
+				9FCA3FAE2C12321A009CD9A7 /* CapitalCities.json in Resources */,
 				9F41AFAC2C10FC910015C894 /* Base in Resources */,
 				9F41AFA72C10FC900015C894 /* Base in Resources */,
 			);
@@ -147,6 +154,7 @@
 				9F41AFA42C10FC900015C894 /* ViewController.swift in Sources */,
 				9F41AFA02C10FC900015C894 /* AppDelegate.swift in Sources */,
 				9F41AFB42C110CF30015C894 /* Capital.swift in Sources */,
+				9FCA3FAC2C122FD9009CD9A7 /* DetailViewController.swift in Sources */,
 				9FCA3FAA2C12137E009CD9A7 /* Region.swift in Sources */,
 				9F41AFA22C10FC900015C894 /* SceneDelegate.swift in Sources */,
 			);

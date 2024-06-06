@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Region {
+enum Region: String, Codable {
     case north, northeast, southeast, centralWest, south
 }
 
