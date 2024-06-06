@@ -57,7 +57,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let capital = view.annotation as? Capital else { return }
+        
         let vc = DetailViewController()
+        vc.suffix = capital.suffix
         navigationController?.pushViewController(vc, animated: true)
     }
     

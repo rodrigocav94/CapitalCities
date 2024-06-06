@@ -10,6 +10,7 @@ import WebKit
 
 class DetailViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
+    var suffix: String!
     
     override func loadView() {
         webView = WKWebView()
@@ -20,7 +21,7 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://www.apple.com/")!
+        let url = URL(string: "https://en.wikipedia.org/wiki/\(suffix ?? "")")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
