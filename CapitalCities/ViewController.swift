@@ -45,6 +45,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotations([rioDeJaneiro, saoPaulo, brasilia, salvador, fortaleza, beloHorizonte, manaus, curitiba, recife, portoAlegre, goiania, belem, cuiaba, natal, teresina, joaoPessoa, maceio, aracaju, palmas, macapa, rioBranco, portoVelho, saoLuis, boaVista, floripa, campoGrande, vitoria])
 
     }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
         // If the annotation isn't from a capital city, it must return nil so iOS uses a default view.
         guard let annotation = annotation as? Capital else { return nil }
@@ -65,9 +66,18 @@ class ViewController: UIViewController, MKMapViewDelegate {
             let btn = UIButton(type: .detailDisclosure)
             annotationView?.rightCalloutAccessoryView = btn
             
+            let label1 = UILabel()
+            label1.text = annotation.info
+            label1.textColor = .secondaryLabel
+            label1.numberOfLines = 0
+            annotationView?.detailCalloutAccessoryView = label1
+            
         } else {
             // If it can reuse a view, update that view to use a different annotation.
             annotationView?.annotation = annotation
+            if let subHeader = annotationView?.detailCalloutAccessoryView as? UILabel {
+                subHeader.text = annotation.info
+            }
         }
         
         annotationView?.markerTintColor = annotation.region.color
