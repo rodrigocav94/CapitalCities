@@ -12,6 +12,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "CapitalCities"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         let rioDeJaneiro = Capital(title: "Rio de Janeiro", coordinate: CLLocationCoordinate2D(latitude: -22.9068, longitude: -43.1729), info: "Famous for its Carnival festival.")
         let saoPaulo = Capital(title: "São Paulo", coordinate: CLLocationCoordinate2D(latitude: -23.5505, longitude: -46.6333), info: "Largest city in Brazil.")
