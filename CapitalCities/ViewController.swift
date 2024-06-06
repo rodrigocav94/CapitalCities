@@ -15,7 +15,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         title = "CapitalCities"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let rioDeJaneiro = Capital(title: "Rio de Janeiro", coordinate: CLLocationCoordinate2D(latitude: -22.9068, longitude: -43.1729), info: "Famous for its Carnival festival.", region: .northeast)
+        let rioDeJaneiro = Capital(title: "Rio de Janeiro", coordinate: CLLocationCoordinate2D(latitude: -22.9068, longitude: -43.1729), info: "Famous for its Carnival festival.", region: .southeast)
         let saoPaulo = Capital(title: "São Paulo", coordinate: CLLocationCoordinate2D(latitude: -23.5505, longitude: -46.6333), info: "Largest city in Brazil.", region: .southeast)
         let brasilia = Capital(title: "Brasília", coordinate: CLLocationCoordinate2D(latitude: -15.7942, longitude: -47.8822), info: "Capital of Brazil since 1960.", region: .centralWest)
         let salvador = Capital(title: "Salvador", coordinate: CLLocationCoordinate2D(latitude: -12.9714, longitude: -38.5014), info: "Known for its Portuguese colonial architecture.", region: .northeast)
@@ -48,13 +48,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
         // If the annotation isn't from a capital city, it must return nil so iOS uses a default view.
-        guard annotation is Capital else { return nil }
+        guard let annotation = annotation as? Capital else { return nil }
         
         // Define a reuse identifier. This is a string that will be used to ensure we reuse annotation views as much as possible.
         let identifier = "Capital"
         
         // Try to dequeue an annotation view from the map view's pool of unused view
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
         
         if annotationView == nil {
             // If it isn't able to find a reusable view, create a new one using MKPinAnnotationView and sets its canShowCallout property to true. This triggers the popup with the city name.
@@ -70,6 +70,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
             // If it can reuse a view, update that view to use a different annotation.
             annotationView?.annotation = annotation
         }
+        
+        annotationView?.markerTintColor = annotation.region.color
+        annotationView?.tintColor = annotation.region.color
         
         return annotationView
     }

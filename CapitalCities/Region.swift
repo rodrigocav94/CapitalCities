@@ -15,15 +15,15 @@ extension Region {
     var color: UIColor {
         switch self {
         case .north:
-            return .green
+            return .systemGreen
         case .northeast:
-            return .blue
+            return .systemBlue
         case .southeast:
-            return .orange
+            return .systemOrange
         case .centralWest:
-            return .yellow
+            return .systemYellow
         case .south:
-            return .red
+            return .systemRed
         }
     }
 }
